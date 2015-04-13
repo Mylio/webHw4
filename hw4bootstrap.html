@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>Hw2</title>
+<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!--fadeInLeft src <link rel="stylesheet" href="src/animate.css">-->
+<style type="text/css">
+body {
+  width:70%;
+  margin: 0 auto;
+  background: url("src/skulls.png");/* Background pattern from subtlepatterns.com */
+}
+header {
+  font-family: 'Slabo 27px', serif;
+  background: url("src/starDustMod.png");/*background-color: #336E7B;*/
+  font-size: 50px;
+  color: #ffffff;
+  padding: 50px 20px 30px;
+  border-bottom: 8px solid #22313F;
+}
+nav {
+  height:52px;/*required, or content will collapse with nav*/
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes navAni {
+    from {height: 5px;}
+    to { height: 39px;}
+}
+/* Standard syntax */
+@keyframes navAni {
+    from {height: 5px;}
+    to { height: 39px;}
+}
+nav ul{ /*animate writes in ul, or padding affect will fluence*/
+  background-color: #ffffff;
+  margin-top: 4px;
+
+  -webkit-animation-name: navAni; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+    animation-name: navAni;
+    animation-duration: 1s;
+}
+nav li {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+}
+nav div{
+  background-color: #52B3D9;
+  padding: 10px;
+  -webkit-transition-property:opacity;
+  transition-property:opacity;
+  -webkit-transition-duration:0.5s;
+  transition-duration:0.5s;
+  opacity: 0.7;
+}
+nav div:hover{
+  opacity: 1;
+}
+.fixed {position:fixed; top:0;z-index: 1;}
+.content{
+  background-color: #E4F1FE;
+  margin-top: -10px;
+  padding: 5px;
+  opacity: .7;
+  height:1000px;/**/
+}
+#main {
+  width:75%;
+  margin: 0 auto;
+  
+}/*/table*/
+footer{/*mod*/
+  background-color: #336E7B;
+  color:#ffffff;
+  text-align: center;
+}
+footer:hover{
+  margin-bottom: 0px;/*mod*/
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+</style>
+</head>
+<body>
+
+<script>
+$(window).scroll(function() {
+   if($(window).scrollTop()> $("header").height()+96) {/*header padding 50*2-nav paddind 4*/
+       $(navbar).addClass('fixed');/*.css({xx:x,xx:x})multiple changes, add {} or .addClass('fixed');*/
+   }else{$(navbar).removeClass('fixed');}
+});
+</script>
+<header>103-2 webProgramming</header>
+<nav>
+ <ul class="nav nav-tabs"  role="tablist" id="navbar">
+  <li role="presentation" class="active"><div><a data-toggle="tab" href="#home" aria-controls="profile" role="tab" >Home</a></div></li>
+  <li role="presentation"><div><a data-toggle="tab" href="#profile" aria-controls="profile" role="tab">Profile</a></div></li>
+  <li role="presentation"><div><a data-toggle="tab" href="#timeline" aria-controls="timeline" role="tab">Timeline</a></div></li>
+  <li role="presentation"><div><a data-toggle="tab" href="#favorites" aria-controls="favorites" role="tab">MyFavorites</a></div></li>
+  <li role="presentation"><div style="visibility: hidden;float:right;"></div></li>
+ </ul>
+</nav>
+<div class="content">
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane" id="home">
+    Home
+</div>
+<div role="tabpanel" class="tab-pane" id="profile">
+    個人資料
+</div>
+<div class="tab-pane" id="timeline">
+    timeline
+</div>
+<div class="tab-pane" id="favorites">
+    favorites
+</div>
+</div>
+<script>
+  $(function () {
+    $('#navbar a:last').tab('show')
+  })
+</script>
+
+
+
+<section>
+<!--use colume?-->
+</section>
+
+</div>
+<footer>Copyright &copy; 2015 Mylio</footer>
+</body>
+</html>
