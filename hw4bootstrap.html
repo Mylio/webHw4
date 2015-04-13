@@ -12,6 +12,7 @@
 <style type="text/css">
 body {
   width:70%;
+  min-width: 500px;
   margin: 0 auto;
   background: url("src/skulls.png");/* Background pattern from subtlepatterns.com */
 }
@@ -37,9 +38,9 @@ nav {
     to { height: 39px;}
 }
 nav ul{ /*animate writes in ul, or padding affect will fluence*/
-  background-color: #ffffff;
+  background-color: #3944AC;
   margin-top: 4px;
-
+  text-align: center;
   -webkit-animation-name: navAni; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
     animation-name: navAni;
@@ -48,6 +49,7 @@ nav ul{ /*animate writes in ul, or padding affect will fluence*/
 nav li {
   display: inline-block;
   font-family: 'Lato', sans-serif;
+  width:25%;
 }
 nav div{
   background-color: #52B3D9;
@@ -61,10 +63,12 @@ nav div{
 nav div:hover{
   opacity: 1;
 }
-.fixed {position:fixed; top:0;z-index: 1;}
+.fixed {
+  position:fixed; 
+  top:0;z-index: 1;
+}
 .content{
   background-color: #E4F1FE;
-  margin-top: -10px;
   padding: 5px;
   opacity: .7;
   height:1000px;/**/
@@ -94,23 +98,35 @@ a{
 $(window).scroll(function() {
    if($(window).scrollTop()> $("header").height()+96) {/*header padding 50*2-nav paddind 4*/
        $(navbar).addClass('fixed');/*.css({xx:x,xx:x})multiple changes, add {} or .addClass('fixed');*/
+     //  var ww = $( window ).width();
+     //  $(navbar).css("width",ww);
    }else{$(navbar).removeClass('fixed');}
 });
+/*function act(){
+if($(".active")){
+$(this).closest("div").style.opacity=1;  
+alert("hi");
+}else{
+  $(this).closest("div").style.opacity=.7;  
+}
+};
+act();*/
 </script>
 <header>103-2 webProgramming</header>
+<div class="content">
 <nav>
  <ul class="nav nav-tabs"  role="tablist" id="navbar">
   <li role="presentation" class="active"><div><a data-toggle="tab" href="#home" aria-controls="profile" role="tab" >Home</a></div></li>
   <li role="presentation"><div><a data-toggle="tab" href="#profile" aria-controls="profile" role="tab">Profile</a></div></li>
   <li role="presentation"><div><a data-toggle="tab" href="#timeline" aria-controls="timeline" role="tab">Timeline</a></div></li>
   <li role="presentation"><div><a data-toggle="tab" href="#favorites" aria-controls="favorites" role="tab">MyFavorites</a></div></li>
-  <li role="presentation"><div style="visibility: hidden;float:right;"></div></li>
+  <!--<li role="presentation"><div style="visibility: hidden;float:right;"></div></li>-->
  </ul>
 </nav>
-<div class="content">
-<div class="tab-content">
+
+<div class="tab-content" >
 <div role="tabpanel" class="tab-pane" id="home">
-    Home
+    Home沒時間Q_Q
 </div>
 <div role="tabpanel" class="tab-pane" id="profile">
     個人資料
