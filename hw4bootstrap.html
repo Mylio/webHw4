@@ -11,7 +11,7 @@
 <!--fadeInLeft src <link rel="stylesheet" href="src/animate.css">-->
 <style type="text/css">
 body {
-  width:70%;
+  width:100%;
   min-width: 500px;
   margin: 0 auto;
   background: url("src/skulls.png");/* Background pattern from subtlepatterns.com */
@@ -25,6 +25,7 @@ header {
   border-bottom: 8px solid #22313F;
 }
 nav {
+  width:100%;
   height:52px;/*required, or content will collapse with nav*/
 }
 /* Chrome, Safari, Opera */
@@ -39,6 +40,7 @@ nav {
 }
 nav ul{ /*animate writes in ul, or padding affect will fluence*/
   background-color: #3944AC;
+
   margin-top: 4px;
   text-align: center;
   -webkit-animation-name: navAni; /* Chrome, Safari, Opera */
@@ -63,9 +65,15 @@ nav div{
 nav div:hover{
   opacity: 1;
 }
+li.active{opacity: 1; background-color: #5CA3DF;}
+li.active a{
+  font-weight: bold;
+  color: #301619;
+}
 .fixed {
   position:fixed; 
   top:0;z-index: 1;
+  width:100%;
 }
 .content{
   background-color: #E4F1FE;
@@ -90,27 +98,34 @@ a{
   text-decoration: none;
   color:black;
 }
+#imgJohnny{/*img center*/
+  display: block;
+  margin: auto;
+}
 </style>
 </head>
 <body>
 
 <script>
 $(window).scroll(function() {
+  //var ww = $( window ).width();
    if($(window).scrollTop()> $("header").height()+96) {/*header padding 50*2-nav paddind 4*/
        $(navbar).addClass('fixed');/*.css({xx:x,xx:x})multiple changes, add {} or .addClass('fixed');*/
-     //  var ww = $( window ).width();
-     //  $(navbar).css("width",ww);
-   }else{$(navbar).removeClass('fixed');}
-});
-/*function act(){
+   }else{$(navbar).removeClass('fixed');
+          //$(navbar).css("width",ww); 
+        }
+});/*
+function act(){
 if($(".active")){
 $(this).closest("div").style.opacity=1;  
 alert("hi");
 }else{
   $(this).closest("div").style.opacity=.7;  
 }
-};
-act();*/
+};*/
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 </script>
 <header>103-2 webProgramming</header>
 <div class="content">
@@ -126,21 +141,22 @@ act();*/
 
 <div class="tab-content" >
 <div role="tabpanel" class="tab-pane" id="home">
-    Home沒時間Q_Q
+    Home沒做完那來放一張JohnnyDepp<br>
+    <div><img src="src/johnnyDepp.jpg" alt="johnnyDepp" id="imgJohnny" type="button" data-toggle="tooltip" data-placement="top" title="yo Man, what's up"></div>
 </div>
 <div role="tabpanel" class="tab-pane" id="profile">
     個人資料
 </div>
-<div class="tab-pane" id="timeline">
+<div role="tabpanel" class="tab-pane" id="timeline">
     timeline
 </div>
-<div class="tab-pane" id="favorites">
+<div role="tabpanel" class="tab-pane" id="favorites">
     favorites
 </div>
 </div>
 <script>
   $(function () {
-    $('#navbar a:last').tab('show')
+    $('#navbar a:first').tab('show')//default show first tab
   })
 </script>
 
